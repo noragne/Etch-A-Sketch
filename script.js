@@ -32,8 +32,9 @@ btnSetGrid.addEventListener('click', () => {
 
 });
 
+
 // Drawing on grid
-function draw(){
+function draw() {
     let boxes = document.querySelectorAll('div.box');
     boxes.forEach(box =>
         box.addEventListener('mouseover', () => {
@@ -42,8 +43,15 @@ function draw(){
         ));
 }
 
+
+
 // Work on the page
 setGrid(16);
 draw();
 
 
+// Reset The Drawing for the grid.
+btnReset.addEventListener('click', () => {
+    let boxes = document.querySelectorAll('div.box');
+    boxes.forEach(box => box.style.backgroundColor = "white")
+});
