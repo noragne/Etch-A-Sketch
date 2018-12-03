@@ -28,14 +28,22 @@ btnSetGrid.addEventListener('click', () => {
     container.innerHTML = '';
     // Set the grid
     setGrid(num);
+    draw();
 
 });
 
+// Drawing on grid
+function draw(){
+    let boxes = document.querySelectorAll('div.box');
+    boxes.forEach(box =>
+        box.addEventListener('mouseover', () => {
+            box.style.backgroundColor = 'black';
+        }
+        ));
+}
 
-
-
-
-
-
-// Populate the page
+// Work on the page
 setGrid(16);
+draw();
+
+
