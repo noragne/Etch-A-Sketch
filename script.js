@@ -5,6 +5,10 @@ let btnSetGrid = document.querySelector("#setGrid");
 let pen = document.querySelector("#pen");
 
 
+// On  Page Load the page
+setGrid(16);
+draw();
+
 // Create a grid with num width & num height
 function setGrid(num) {
     // Set the grid
@@ -33,25 +37,36 @@ btnSetGrid.addEventListener('click', () => {
 });
 
 
+// Toggle between draw and erase
+let penOn = true;
+pen.addEventListener("click", () => {
+    penOn = !penOn;
+    pen.textContent = penOn ? "Pen" : "Eraser";
+
+});
+
 // Drawing on grid
 function draw() {
     let boxes = document.querySelectorAll('div.box');
     boxes.forEach(box =>
         box.addEventListener('mouseover', () => {
-            box.style.backgroundColor = 'black';
+            if (penOn) {
+                box.style.backgroundColor = "black";
+            } else {
+                box.style.backgroundColor = "white";
+            }
         }
         ));
 }
-
-
-
-// Work on the page
-setGrid(16);
-draw();
-
 
 // Reset The Drawing for the grid.
 btnReset.addEventListener('click', () => {
     let boxes = document.querySelectorAll('div.box');
     boxes.forEach(box => box.style.backgroundColor = "white")
 });
+
+
+
+
+
+
