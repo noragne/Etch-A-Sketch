@@ -5,7 +5,7 @@ let btnSetGrid = document.querySelector("#setGrid");
 let pen = document.querySelector("#pen");
 
 
-// Function to create a grid with num width & num height
+// Create a grid with num width & num height
 function setGrid(num) {
     // Set the grid
     container.style.grid = `repeat(${num}, 1fr) / repeat(${num}, 1fr)`;
@@ -18,7 +18,18 @@ function setGrid(num) {
     }
 }
 
+// Buttton Set Grid
+// Set the size of the grid.
+// prompt for an int
+btnSetGrid.addEventListener('click', () => {
+    // Prompt for number for set the grid
+    let num = prompt("You want a grid of: (give a number)");
+    // Clean the grid
+    container.innerHTML = '';
+    // Set the grid
+    setGrid(num);
 
+});
 
 
 
